@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="西瓜视频在线观看 - 提供海量高清短视频、电影电视剧、纪录片、综艺节目及专业教程资源，支持在线播放与下载，满足您多样化的视频娱乐与知识获取需求。">
+    <meta name="keywords" content="西瓜视频在线观看,西瓜视频,高清视频,在线电影,短视频,影视资源">
+    <title>西瓜视频在线观看 - 海量高清影视与短视频聚合平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b00;
+            --primary-hover: #e65c00;
+            --bg-body: #f5f5f7;
+            --bg-card: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #86868b;
+            --border-color: #e5e5e5;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            margin-left: 4px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 24px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            padding-right: 48px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-body);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 32px 0;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .hero-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .hero-card:hover img {
+            opacity: 0.6;
+        }
+
+        .hero-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .hero-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .hero-meta {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .side-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .side-item {
+            display: flex;
+            gap: 12px;
+            background: var(--bg-card);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .side-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .side-thumb {
+            width: 100px;
+            height: 60px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .side-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .side-title {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .side-desc {
+            font-size: 12px;
+            color: var(--text-sub);
+            line-height: 1.3;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 32px 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .category-item {
+            background: var(--bg-card);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .category-item:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .cat-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .cat-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 32px 0 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 18px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-more {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .view-more:hover {
+            color: var(--primary-color);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 11px;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 40px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .author-avatar {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        /* Features Section */
+        .features {
+            background: #fff;
+            padding: 48px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            background: #fff5f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 48px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .faq-question:hover {
+            background: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 16px 20px 16px;
+            max-height: 200px;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            padding: 48px 0 24px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand h2 {
+            color: var(--text-main);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .footer-col h3 {
+            color: var(--text-main);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-card {
+                aspect-ratio: 16/9;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+                </svg>
+                <span>西瓜视频</span>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="搜索电影、电视剧、短视频、知识教程...">
+                <button class="search-btn" aria-label="搜索">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">电影</a>
+                <a href="#">电视剧</a>
+                <a href="#">综艺</a>
+                <a href="#">知识</a>
+                <a href="#">微短剧</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-card">
+                    <img src="https://picsum.photos/seed/hero1/800/450" alt="今日推荐电影海报">
+                    <div class="hero-info">
+                        <span class="hero-tag">热门推荐</span>
+                        <h2 class="hero-title">星际穿越：未知的旅程</h2>
+                        <div class="hero-meta">科幻 / 冒险 / 2023 | 128分钟</div>
+                    </div>
+                </div>
+                <div class="side-list">
+                    <div class="side-item">
+                        <img src="https://picsum.photos/seed/thumb1/200/120" class="side-thumb" alt="短视频缩略图">
+                        <div class="side-content">
+                            <h3 class="side-title">如何制作一杯完美的手冲咖啡？</h3>
+                            <p class="side-desc">专业咖啡师教你掌握水温与粉水比...</p>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <img src="https://picsum.photos/seed/thumb2/200/120" class="side-thumb" alt="纪录片缩略图">
+                        <div class="side-content">
+                            <h3 class="side-title">深海探秘：发现未知的生物</h3>
+                            <p class="side-desc">BBC纪录片高清版，震撼视觉体验...</p>
+                        </div>
+                    </div>
+                    <div class="side-item">
+                        <img src="https://picsum.photos/seed/thumb3/200/120" class="side-thumb" alt="剧集缩略图">
+                        <div class="side-content">
+                            <h3 class="side-title">古装悬疑剧《长安十二时辰》</h3>
+                            <p class="side-desc">全季更新完毕，沉浸式古装体验...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="container category-grid">
+                <div class="category-item">
+                    <span class="cat-icon">🎬</span>
+                    <span class="cat-name">电影</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">📺</span>
+                    <span class="cat-name">电视剧</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🎭</span>
+                    <span class="cat-name">综艺</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">📚</span>
+                    <span class="cat-name">知识</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">📱</span>
+                    <span class="cat-name">微短剧</span>
+                </div>
+                <div class="category-item">
+                    <span class="cat-icon">🚀</span>
+                    <span class="cat-name">科技</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">极速播放</h3>
+                    <p class="feature-desc">采用智能CDN加速技术，提供高清流畅的在线观看体验，告别卡顿。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <h3 class="feature-title">离线下载</h3>
+                    <p class="feature-desc">支持视频缓存功能，随时随地观看，无需网络连接也能享受精彩内容。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎧</div>
+                    <h3 class="feature-title">沉浸音效</h3>
+                    <p class="feature-desc">支持杜比全景声，为电影和音乐爱好者带来影院级的听觉盛宴。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">安全纯净</h3>
+                    <p class="feature-desc">严格的内容审核机制，绿色安全的观影环境，保护您的隐私安全。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section 1 -->
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">热播影视</h2>
+                    <a href="#" class="view-more">查看更多 <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+                </div>
+                <div class="video-grid">
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/v1/400/225" alt="视频封面">
+                            <span class="duration">02:14:30</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">盗梦空间：深度解析与彩蛋解读</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>影视解说小王</span>
+                                </div>
+                                <span>125万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/v2/400/225" alt="视频封面">
+                            <span class="duration">45:10</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">2024年最值得期待的科幻大片盘点</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>电影情报局</span>
+                                </div>
+                                <span>89万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/v3/400/225" alt="视频封面">
+                            <span class="duration">1:05:22</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">经典老片重映：《泰坦尼克号》幕后故事</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>怀旧电影院</span>
+                                </div>
+                                <span>230万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/v4/400/225" alt="视频封面">
+                            <span class="duration">28:45</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">漫威电影宇宙时间线整理指南</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>漫威粉丝团</span>
+                                </div>
+                                <span>67万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section 2 -->
+        <section class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">热门知识</h2>
+                    <a href="#" class="view-more">查看更多 <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+                </div>
+                <div class="video-grid">
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/k1/400/225" alt="视频封面">
+                            <span class="duration">12:30</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">零基础入门：如何使用Python编程</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>编程大本营</span>
+                                </div>
+                                <span>45万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/k2/400/225" alt="视频封面">
+                            <span class="duration">18:20</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">健康饮食：一日三餐的科学搭配</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>营养师小林</span>
+                                </div>
+                                <span>92万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/k3/400/225" alt="视频封面">
+                            <span class="duration">35:15</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">心理学入门：读懂人心与行为</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>心理观察室</span>
+                                </div>
+                                <span>78万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/k4/400/225" alt="视频封面">
+                            <span class="duration">22:10</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">理财小课堂：新手如何存下第一桶金</h3>
+                            <div class="card-meta">
+                                <div class="author">
+                                    <div class="author-avatar"></div>
+                                    <span>财富自由之路</span>
+                                </div>
+                                <span>110万次播放</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container faq-container">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            西瓜视频在线观看需要付费吗？
+                            <svg class="faq-icon" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            平台提供大量免费的高清视频内容，部分独家影视剧和VIP专区可能需要开通会员或单独付费观看。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            如何在电脑和手机上同步观看进度？
+                            <svg class="faq-icon" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            您可以登录同一账号，西瓜视频支持跨设备同步播放记录，确保您在任何设备上都能继续观看。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            视频播放卡顿怎么办？
+                            <svg class="faq-icon" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </div>
+                        <div class="faq-answer">
+                            请检查您的网络连接是否稳定。建议切换至Wi-Fi环境，或尝试刷新页面、清除浏览器缓存来解决卡顿问题。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>西瓜视频</h2>
+                    <p>致力于为用户提供丰富、优质、有趣的视频内容。涵盖电影、电视剧、综艺、知识科普、微短剧等多种类型。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>内容分类</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">电影</a></li>
+                        <li><a href="#">电视剧</a></li>
+                        <li><a href="#">综艺</a></li>
+                        <li><a href="#">知识</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">播放问题</a></li>
+                        <li><a href="#">账号安全</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 西瓜视频在线观看演示站 版权所有. 本页面为设计演示，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Search Button Interaction
+        const searchBtn = document.querySelector('.search-btn');
+        const searchInput = document.querySelector('.search-input');
+        
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value.trim();
+            if(query) {
+                alert('正在搜索：' + query);
+            } else {
+                searchInput.focus();
+            }
+        });
+
+        // Card Click Simulation
+        document.querySelectorAll('.video-card, .side-item, .hero-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // In a real app, this would navigate to a video player page
+                console.log('Navigating to video...');
+            });
+        });
+    </script>
+</body>
+                          </html>
