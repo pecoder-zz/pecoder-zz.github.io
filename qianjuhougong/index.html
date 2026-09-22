@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="前倨后恭 - 成语词典与典故解析。深度解读“前倨后恭”的含义、出处、近义词及反义词，帮助您准确理解并运用这一成语，提升语言表达与文学素养。">
+    <meta name="keywords" content="前倨后恭,成语,成语词典,典故,近义词,反义词,汉语词汇">
+    <title>前倨后恭-成语详解与典故运用指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --spacing-unit: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-unit) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .hero-section .pinyin {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-family: "KaiTi", "STKaiti", serif;
+        }
+
+        .hero-section .definition {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+
+        /* Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-top: 4px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card.highlight {
+            border-top-color: var(--accent-color);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+            color: var(--primary-color);
+        }
+
+        .card p, .card li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        .card p:last-child, .card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .meaning-box {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 15px;
+        }
+
+        .meaning-box strong {
+            color: #2980b9;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Lists */
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Examples */
+        .example-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .example-item::before {
+            content: "“";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            line-height: 0;
+        }
+
+        .source {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Synonyms/Antonyms Tags */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .tag.antonym {
+            background-color: #fadbd8;
+            color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        /* Utility */
+        .highlight-text {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span>📚</span> 成语大全
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">成语库</a></li>
+                    <li><a href="#">典故</a></li>
+                    <li><a href="#">诗词</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>前倨后恭</h1>
+            <div class="pinyin">qián jù hòu gōng</div>
+            <p class="definition">形容对人的态度由傲慢变为恭敬，或形势变化后态度随之改变。</p>
+        </section>
+
+        <div class="content-grid">
+            <!-- Left Column: Detailed Info -->
+            <div class="main-column">
+                <article class="card highlight">
+                    <h2>释义与用法</h2>
+                    <div class="meaning-box">
+                        <strong>基本含义</strong>
+                        “倨”是指傲慢、不恭敬；“恭”是指恭敬、谦虚。该成语字面意思是以前傲慢，后来恭敬。它通常用来形容一个人在形势改变、利益得失或面对不同地位的人时，态度发生了剧烈的转变。在现代语境中，它多带有贬义，暗示这种转变并非出于真诚的敬意，而是为了适应环境或讨好他人。
+                    </div>
+                    <h3>适用场景</h3>
+                    <ul>
+                        <li><strong>职场语境：</strong> 描述某些员工在老板面前和私下里的不同表现。</li>
+                        <li><strong>社交场合：</strong> 描述势利眼的行为，即“看人下菜碟”。</li>
+                        <li><strong>历史叙述：</strong> 描述历史人物因时局变化而改变对同僚的态度。</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h2>详细典故</h2>
+                    <p>这个成语出自战国时期的《战国策·秦策一》。故事讲述了苏秦游说秦王失败，盘缠用尽，狼狈地回到洛阳家中。他的妻子和嫂子见他衣衫褴褛，对他非常冷淡，甚至都不愿意为他做饭。</p>
+                    <p>苏秦感到羞愧，于是发愤图强，夜以继日地研读《阴符经》。几年后，他再次出山游说各国，最终身挂六国相印，权势显赫。当他再次回到家乡时，他的嫂子跪在地上不敢抬头，甚至不敢迈步，以此来表达极度的恭敬。</p>
+                    <p>苏秦问嫂子：“何前倨而后恭也？”（为什么以前傲慢，现在却恭敬了呢？）嫂子回答说：“以季子之位尊而多金。”（因为你现在的地位尊贵而且有很多钱财。这便是“前倨后恭”这一典故的由来，也揭示了人性中趋炎附势的一面。）</p>
+                </article>
+
+                <article class="card">
+                    <h2>经典例句</h2>
+                    <div class="example-item">
+                        他这个人最是势利，以前你不得志时对他爱理不理，如今你稍有成就，他便对你<span class="highlight-text">前倨后恭</span>，极力巴结。
+                    </div>
+                    <div class="example-item">
+                        历史上的许多权臣，在皇权稳固时对皇帝毕恭毕敬，一旦皇帝年幼或失势，便立刻露出<span class="highlight-text">前倨后恭</span>的真面目。
+                    </div>
+                    <div class="example-item">
+                        我们与人交往应当真诚坦荡，不应为了利益而<span class="highlight-text">前倨后恭</span>，这种见风使舵的行为令人不齿。
+                    </div>
+                </article>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar-column">
+                <div class="card">
+                    <h2>近义词</h2>
+                    <div class="tag-cloud">
+                        <span class="tag">见风使舵</span>
+                        <span class="tag">趋炎附势</span>
+                        <span class="tag">阿谀奉承</span>
+                        <span class="tag">看人下菜碟</span>
+                        <span class="tag">反复无常</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>反义词</h2>
+                    <div class="tag-cloud">
+                        <span class="tag antonym">始终如一</span>
+                        <span class="tag antonym">一视同仁</span>
+                        <span class="tag antonym">彬彬有礼</span>
+                        <span class="tag antonym">恭敬有加</span>
+                        <span class="tag antonym">不卑不亢</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>造句指南</h2>
+                    <p>使用该成语时，建议搭配主语（如某人、某人态度）和语境（如为了利益、为了权势）。</p>
+                    <p>示例：<strong>他为了晋升，对领导表现得前倨后恭。</strong></p>
+                </div>
+
+                <div class="card">
+                    <h2>小知识</h2>
+                    <p>苏秦（约前337年－前287年），字季子，雒阳（今河南洛阳）人，战国时期著名的纵横家、外交家和谋略家。他提出“合纵”抗秦的主张，身挂六国相印。</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 成语大全网 - 专注传统文化与现代传播</p>
+        </div>
+    </footer>
+
+</body>
+</html>
