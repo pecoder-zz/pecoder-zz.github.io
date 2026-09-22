@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传奇私服完整客户端-经典复古版本下载与运营指南</title>
+    <meta name="description" content="本站提供最全的传奇私服完整客户端下载资源，涵盖1.76复古、1.80合击、1.85魔龙等经典版本。包含版本特色介绍、客户端安装教程、私服运营技术指南及常见问题解答。">
+    <meta name="keywords" content="传奇私服完整客户端,传奇客户端下载,1.76复古传奇,私服客户端,传奇合击版本">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4af37; /* 金色 */
+            --primary-dark: #aa8c2c;
+            --bg-color: #f4f1ea; /* 米色/纸张色 */
+            --text-main: #2c2c2c;
+            --text-secondary: #666;
+            --accent-red: #c0392b; /* 警告/强调色 */
+            --card-bg: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #ccc;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDQwaDQwVjBIMHY0MHptMjAtMjB2MjBoMjBWMjBIMjB6TTAgMjBoMjBWMHgyMHYyMHoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9nPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #1a1a1a;
+            padding: 12px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* 版本分类 */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 40px 0 24px;
+            color: var(--text-main);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .version-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .version-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .card-header {
+            background: #f9f9f9;
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            background: #e8f4f8;
+            color: #3498db;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+
+        .btn-small {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 8px;
+            background: #f0f0f0;
+            color: #333;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-small:hover {
+            background: var(--primary-color);
+            color: #1a1a1a;
+        }
+
+        /* 安装指南 */
+        .guide-section {
+            background: #fff;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .step-item::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .step-item h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .step-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* 运营与FAQ */
+        .info-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .article-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .article-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .faq-box {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: bold;
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .faq-a {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #111;
+            color: #888;
+            padding: 40px 0;
+            font-size: 14px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-inner">
+        <div class="logo">
+            <span>⚡</span> 传奇资源站
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#download">客户端下载</a></li>
+                <li><a href="#guide">安装教程</a></li>
+                <li><a href="#guide">私服运营</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>传奇私服完整客户端</h1>
+            <p>重温经典 1.76 复古版本，体验纯正攻沙荣耀。提供稳定、安全的客户端下载及服务器端部署技术支持。</p>
+            <a href="#download" class="btn-download">立即下载客户端</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 版本列表 -->
+        <h2 class="section-title" id="download">热门版本客户端</h2>
+        <div class="version-grid">
+            <!-- 版本 1 -->
+            <article class="version-card">
+                <div class="card-header">
+                    <span class="card-tag">经典</span>
+                    <span>1.76</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">1.76 破晓复古版</h3>
+                    <p class="card-desc">保留了原汁原味的地图、怪物掉落及PK规则，优化了服务器稳定性，适合老玩家回归。</p>
+                    <div class="card-meta">
+                        <span>更新: 2023-10</span>
+                        <span>大小: 450MB</span>
+                    </div>
+                    <a href="#" class="btn-small">下载客户端</a>
+                </div>
+            </article>
+
+            <!-- 版本 2 -->
+            <article class="version-card">
+                <div class="card-header">
+                    <span class="card-tag">合击</span>
+                    <span>1.80</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">1.80 英雄合击</h3>
+                    <p class="card-desc">引入英雄系统，支持双人合击技能，怪物属性大幅增强，装备爆率适中，PVP体验激烈。</p>
+                    <div class="card-meta">
+                        <span>更新: 2023-11</span>
+                        <span>大小: 520MB</span>
+                    </div>
+                    <a href="#" class="btn-small">下载客户端</a>
+                </div>
+            </article>
+
+            <!-- 版本 3 -->
+            <article class="version-card">
+                <div class="card-header">
+                    <span class="card-tag">魔龙</span>
+                    <span>1.85</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">1.85 魔龙降临</h3>
+                    <p class="card-desc">新增魔龙城地图，BOSS战机制更新，支持跨服争霸，画面经过高清重制。</p>
+                    <div class="card-meta">
+                        <span>更新: 2023-12</span>
+                        <span>大小: 580MB</span>
+                    </div>
+                    <a href="#" class="btn-small">下载客户端</a>
+                </div>
+            </article>
+
+            <!-- 版本 4 -->
+            <article class="version-card">
+                <div class="card-header">
+                    <span class="card-tag">微变</span>
+                    <span>1.70+</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">1.70 热血微变</h3>
+                    <p class="card-desc">装备可升级，属性可强化，怪物等级调整，适合喜欢养成和快速升级的玩家。</p>
+                    <div class="card-meta">
+                        <span>更新: 2024-01</span>
+                        <span>大小: 480MB</span>
+                    </div>
+                    <a href="#" class="btn-small">下载客户端</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 安装指南 -->
+        <h2 class="section-title" id="guide">客户端安装与部署指南</h2>
+        <section class="guide-section">
+            <div class="guide-steps">
+                <div class="step-item" data-step="1">
+                    <h3>下载客户端文件</h3>
+                    <p>从本站下载对应版本的传奇私服完整客户端压缩包，确保文件完整无损。</p>
+                </div>
+                <div class="step-item" data-step="2">
+                    <h3>解压与目录检查</h3>
+                    <p>将压缩包解压至服务器指定目录（如 D:\Game\），确保包含 Data、Map、System 等文件夹。</p>
+                </div>
+                <div class="step-item" data-step="3">
+                    <h3>配置 IP 与端口</h3>
+                    <p>编辑 ServerConfig.ini 或 Login.ini 文件，修改服务器 IP 地址为局域网或公网 IP。</p>
+                </div>
+                <div class="step-item" data-step="4">
+                    <h3>启动服务端</h3>
+                    <p>双击运行 LoginServer.exe 启动登录器，再运行 GameServer.exe 启动游戏服务，最后启动客户端。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 内容与FAQ -->
+        <div class="info-section">
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-top: 0;">私服运营技术支持</h2>
+                <article class="article-card">
+                    <h3>私服安全性与防封测建议</h3>
+                    <p>使用私服客户端时，请务必确保客户端来源正规，避免使用带有外挂木马的后门版本。建议定期更新客户端补丁，修复已知漏洞，并配置防火墙规则限制非必要端口的访问，以保障服务器数据安全。</p>
+                </article>
+                <article class="article-card">
+                    <h3>客户端更新机制</h3>
+                    <p>私服运营者通常使用“补丁包”形式更新客户端。将修改后的文件放入 Data 目录，并制作 Patch.exe 或更新器，玩家只需下载几十MB的补丁包即可完成客户端升级，无需重新下载完整包。</p>
+                </article>
+            </div>
+            
+            <aside>
+                <div class="faq-box">
+                    <h3 style="margin-bottom: 20px;">常见问题 (FAQ)</h3>
+                    <div class="faq-item">
+                        <div class="faq-q">下载后无法启动游戏？</div>
+                        <div class="faq-a">请检查是否安装了 DirectX 运行库或 .NET Framework，确认版本号与服务器端要求一致。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">连接服务器失败？</div>
+                        <div class="faq-a">请确认服务器端已开启，且客户端 IP 配置正确，防火墙是否放行了 7000、7200 等端口。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">游戏闪退怎么办？</div>
+                        <div class="faq-a">尝试删除客户端目录下的 User 目录，重新登录，或检查显卡驱动是否过旧。</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <p>专注提供最优质的传奇私服完整客户端资源，致力于还原经典，服务广大玩家与开发者。</p>
+            </div>
+            <div class="footer-col">
+                <h4>资源分类</h4>
+                <ul>
+                    <li><a href="#">1.76复古版</a></li>
+                    <li><a href="#">1.80合击版</a></li>
+                    <li><a href="#">1.85魔龙版</a></li>
+                    <li><a href="#">私服源码</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">客户端安装教程</a></li>
+                    <li><a href="#">私服搭建教程</a></li>
+                    <li><a href="#">版本更新日志</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>客服QQ: 123456789</li>
+                    <li>技术支持: support@game.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 传奇资源站 版权所有 | 本站资源仅供学习交流使用，请勿用于商业用途。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
